@@ -1,0 +1,1391 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://awssum.io/"
+
+    >awssum (v1.2.0)</a>
+</h1>
+<h4>NodeJS module to aid talking to Web Service APIs. Requires plugins.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.awssum">module awssum</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum">
+            function <span class="apidocSignatureSpan">awssum.</span>AwsSum
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParam">
+            function <span class="apidocSignatureSpan">awssum.</span>addParam
+            <span class="apidocSignatureSpan">(params, name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParam2dArray">
+            function <span class="apidocSignatureSpan">awssum.</span>addParam2dArray
+            <span class="apidocSignatureSpan">(params, setName, name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParam2dArraySet">
+            function <span class="apidocSignatureSpan">awssum.</span>addParam2dArraySet
+            <span class="apidocSignatureSpan">(params, setName, subsetName, name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParamArray">
+            function <span class="apidocSignatureSpan">awssum.</span>addParamArray
+            <span class="apidocSignatureSpan">(params, name, value, prefix)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParamArrayOfObjects">
+            function <span class="apidocSignatureSpan">awssum.</span>addParamArrayOfObjects
+            <span class="apidocSignatureSpan">(params, name, array, prefix)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParamArraySet">
+            function <span class="apidocSignatureSpan">awssum.</span>addParamArraySet
+            <span class="apidocSignatureSpan">(params, setName, name, value, prefix)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParamData">
+            function <span class="apidocSignatureSpan">awssum.</span>addParamData
+            <span class="apidocSignatureSpan">(params, name, data, prefix)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.addParamIfDefined">
+            function <span class="apidocSignatureSpan">awssum.</span>addParamIfDefined
+            <span class="apidocSignatureSpan">(params, name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.esc">
+            function <span class="apidocSignatureSpan">awssum.</span>esc
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.load">
+            function <span class="apidocSignatureSpan">awssum.</span>load
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.makeOperation">
+            function <span class="apidocSignatureSpan">awssum.</span>makeOperation
+            <span class="apidocSignatureSpan">(operation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.setHeader">
+            function <span class="apidocSignatureSpan">awssum.</span>setHeader
+            <span class="apidocSignatureSpan">(header, name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.setHeaderIfDefined">
+            function <span class="apidocSignatureSpan">awssum.</span>setHeaderIfDefined
+            <span class="apidocSignatureSpan">(header, name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.stringifyQuery">
+            function <span class="apidocSignatureSpan">awssum.</span>stringifyQuery
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">awssum.</span>AwsSum.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.awssum.AwsSum">module awssum.AwsSum</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.AwsSum">
+            function <span class="apidocSignatureSpan">awssum.</span>AwsSum
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.awssum.AwsSum.prototype">module awssum.AwsSum.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.addCommonOptions">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>addCommonOptions
+            <span class="apidocSignatureSpan">(options, args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.addExtras">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>addExtras
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.agent">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>agent
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.extractBody">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>extractBody
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.extractBodyWhenError">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>extractBodyWhenError
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.extractHeaders">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>extractHeaders
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.method">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>method
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.path">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>path
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.protocol">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>protocol
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.request">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>request
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.send">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>send
+            <span class="apidocSignatureSpan">(operation, args, opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.awssum.AwsSum.prototype.statusCode">
+            function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>statusCode
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.awssum" id="apidoc.module.awssum">module awssum</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum" id="apidoc.element.awssum.AwsSum">
+        function <span class="apidocSignatureSpan">awssum.</span>AwsSum
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AwsSum = function (opts) {
+    var self = this;
+    opts = opts || {};
+
+    // if we have been given an agent, store it for use
+    if ( typeof opts.agent !== &#x27;undefined&#x27; ) {
+        self._agent = opts.agent;
+    }
+
+    // if we have been given a protocol, use that one
+    if ( opts.protocol ) {
+        self._protocol = opts.protocol;
+    }
+
+    return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParam" id="apidoc.element.awssum.addParam">
+        function <span class="apidocSignatureSpan">awssum.</span>addParam
+        <span class="apidocSignatureSpan">(params, name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParam(params, name, value) {
+    params.push({ &#x27;name&#x27; : name, &#x27;value&#x27; : value });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParam2dArray" id="apidoc.element.awssum.addParam2dArray">
+        function <span class="apidocSignatureSpan">awssum.</span>addParam2dArray
+        <span class="apidocSignatureSpan">(params, setName, name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParam2dArray(params, setName, name, value) {
+    value = value || [];
+
+    if ( typeof value === &#x27;undefined&#x27; ) {
+        // nothing to do
+        return;
+    }
+
+    // if it&#x27;s a string, just add this single value
+    if ( typeof value === &#x27;string&#x27; ) {
+        params.push({ &#x27;name&#x27; : setName + &#x27;.1.&#x27; + name + &#x27;.1&#x27;, &#x27;value&#x27; : value });
+        return;
+    }
+
+    // else it&#x27;s an array, so add them all
+    _.each(value, function(set, i) {
+        if ( _.isUndefined(set) ) {
+            return;
+        }
+
+        _.each(set, function(v, j) {
+            params.push({ &#x27;name&#x27; : setName + &#x27;.&#x27; + (i+1) + &#x27;.&#x27; + name + &#x27;.&#x27; + (j+1), &#x27;value&#x27; : v });
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParam2dArraySet" id="apidoc.element.awssum.addParam2dArraySet">
+        function <span class="apidocSignatureSpan">awssum.</span>addParam2dArraySet
+        <span class="apidocSignatureSpan">(params, setName, subsetName, name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParam2dArraySet(params, setName, subsetName, name, value) {
+    value = value || [];
+
+    // if it&#x27;s a string, just add this single value
+    if ( typeof value === &#x27;string&#x27; ) {
+        params.push({ &#x27;name&#x27; : setName + &#x27;.1.&#x27; + subsetName + &#x27;.1.&#x27; + name, &#x27;value&#x27; : value });
+        return;
+    }
+
+    // else it&#x27;s an array, so add them all
+    _.each(value, function(set, i) {
+        if ( _.isUndefined(set) ) {
+            return;
+        }
+
+        _.each(set, function(v, j) {
+            params.push({ &#x27;name&#x27; : setName + &#x27;.&#x27; + (i+1) + &#x27;.&#x27; + subsetName + &#x27;.&#x27; + (j+1) + &#x27;.&#x27; + name, &#x27;value&#x27; : v });
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParamArray" id="apidoc.element.awssum.addParamArray">
+        function <span class="apidocSignatureSpan">awssum.</span>addParamArray
+        <span class="apidocSignatureSpan">(params, name, value, prefix)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParamArray(params, name, value, prefix) {
+    value = value || [];
+
+    prefix = &#x27;&#x27; + name + &#x27;.&#x27; + (prefix ? prefix + &#x27;.&#x27; : &#x27;&#x27;);
+
+    // if it&#x27;s a string, just add this single value
+    if ( typeof value === &#x27;string&#x27; ) {
+        params.push({ &#x27;name&#x27; : prefix + &#x27;1&#x27;, &#x27;value&#x27; : value });
+        return;
+    }
+
+    // else it&#x27;s an array, so add them all
+    for ( var i = 0; i &#x3c; value.length; i++ ) {
+        params.push({ &#x27;name&#x27; : prefix + (i+1), &#x27;value&#x27; : value[i] });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParamArrayOfObjects" id="apidoc.element.awssum.addParamArrayOfObjects">
+        function <span class="apidocSignatureSpan">awssum.</span>addParamArrayOfObjects
+        <span class="apidocSignatureSpan">(params, name, array, prefix)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParamArrayOfObjects(params, name, array, prefix) {
+    prefix = prefix ? &#x27;.&#x27; + prefix : &#x27;&#x27;;
+
+    // loop through all the array elements
+    _.each(array, function(obj, i) {
+        if ( _.isUndefined(obj) ) {
+            return;
+        }
+
+        // loop through all the keys in this object
+        _.each(obj, function(value, key) {
+            params.push({ &#x27;name&#x27; : name + prefix + &#x27;.&#x27; + (i+1) + &#x27;.&#x27; + key, &#x27;value&#x27; : &#x27;&#x27; + value });
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParamArraySet" id="apidoc.element.awssum.addParamArraySet">
+        function <span class="apidocSignatureSpan">awssum.</span>addParamArraySet
+        <span class="apidocSignatureSpan">(params, setName, name, value, prefix)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParamArraySet(params, setName, name, value, prefix) {
+    value = value || [];
+
+    // if it&#x27;s a string, just add this single value
+    if ( typeof value === &#x27;string&#x27; ) {
+        params.push({ &#x27;name&#x27; : setName + &#x27;.1.&#x27; + name, &#x27;value&#x27; : value });
+        return;
+    }
+
+    // else it&#x27;s an array, so add them all
+    _.each(value, function(v, i) {
+        if ( _.isUndefined(v) ) {
+            return;
+        }
+        params.push({ &#x27;name&#x27; : setName + &#x27;.&#x27; + (i+1) + &#x27;.&#x27; + name, &#x27;value&#x27; : v });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParamData" id="apidoc.element.awssum.addParamData">
+        function <span class="apidocSignatureSpan">awssum.</span>addParamData
+        <span class="apidocSignatureSpan">(params, name, data, prefix)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParamData(params, name, data, prefix) {
+    var member = prefix ? &#x27;.&#x27; + prefix : &#x27;&#x27;;
+
+    if ( _.isString(data) || _.isNumber(data) || _.isBoolean(data) ) {
+        params.push({ &#x27;name&#x27; : name, &#x27;value&#x27; : &#x27;&#x27; + data });
+        return;
+    }
+
+    if ( _.isArray(data) ) {
+        // console.log(&#x27;array=&#x27;, data);
+        _.each(data, function(value, i) {
+            // should be another data structure, so recurse down it
+            addParamData(params, name + member + &#x27;.&#x27; + (i+1), value, prefix);
+        });
+        return;
+    }
+
+    if ( _.isObject(data) ) {
+        // console.log(&#x27;object=&#x27;, data);
+        _.each(data, function(value, key) {
+            // should be another data structure, so recurse down it
+            addParamData(params, name + &#x27;.&#x27; + key, value, prefix);
+        });
+        return;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.addParamIfDefined" id="apidoc.element.awssum.addParamIfDefined">
+        function <span class="apidocSignatureSpan">awssum.</span>addParamIfDefined
+        <span class="apidocSignatureSpan">(params, name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addParamIfDefined(params, name, value) {
+    if ( ! _.isUndefined(value) ) {
+        params.push({ &#x27;name&#x27; : name, &#x27;value&#x27; : value });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.esc" id="apidoc.element.awssum.esc">
+        function <span class="apidocSignatureSpan">awssum.</span>esc
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function esc(str) {
+    // firstly, use encodeURIComponent(str) to convert all the unicode and most other characters
+    str = encodeURIComponent(str);
+
+    // force a string (since some things might just be a number, e.g. 2)
+    str = &#x27;&#x27; + str;
+
+    // loop through all chars in str
+    var result = [];
+    for ( var i = 0; i &#x3c; str.length; i++ ) {
+        if ( str[i].match( doNotEsc ) ) {
+            result.push( str[i] );
+        }
+        else {
+            result.push( &#x27;%&#x27; + hexMap[str.charCodeAt(i)] );
+        }
+    }
+
+    // console.log(&#x27;        -&#x3e;&#x27;, result.join(&#x27;&#x27;));
+
+    return result.join(&#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.load" id="apidoc.element.awssum.load">
+        function <span class="apidocSignatureSpan">awssum.</span>load
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function load(path) {
+    // since NodeJS caches requires, we won&#x27;t cache them here
+    return require(&#x27;./&#x27; + path);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.makeOperation" id="apidoc.element.awssum.makeOperation">
+        function <span class="apidocSignatureSpan">awssum.</span>makeOperation
+        <span class="apidocSignatureSpan">(operation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function makeOperation(operation) {
+    return function(args, opts, callback) {
+        var self = this;
+
+        if ( arguments.length === 0 ) {
+            // defined as fn()
+            args = {};
+            opts = {};
+            callback = noop;
+        }
+        else if ( arguments.length === 1 ) {
+            // defined as fn(callback)
+            callback = args;
+            args = {};
+            opts = {};
+        }
+        else if ( arguments.length === 2 ) {
+            // defined as fn(args, callback)
+            callback = opts;
+            opts = {};
+        }
+        else if ( arguments.length === 3 ) {
+            // do nothing, we have everything, defined as fn(args, opts, callback)
+        }
+
+        self.send(operation, args, opts, callback);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.setHeader" id="apidoc.element.awssum.setHeader">
+        function <span class="apidocSignatureSpan">awssum.</span>setHeader
+        <span class="apidocSignatureSpan">(header, name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setHeader(header, name, value) {
+    header[name] = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.setHeaderIfDefined" id="apidoc.element.awssum.setHeaderIfDefined">
+        function <span class="apidocSignatureSpan">awssum.</span>setHeaderIfDefined
+        <span class="apidocSignatureSpan">(header, name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setHeaderIfDefined(header, name, value) {
+    if ( ! _.isUndefined(value) ) {
+        header[name] = value;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.stringifyQuery" id="apidoc.element.awssum.stringifyQuery">
+        function <span class="apidocSignatureSpan">awssum.</span>stringifyQuery
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function stringifyQuery(params) {
+    // console.log(&#x27;Params :&#x27;, params);
+    var query = _(params)
+        .chain()
+        .map(function(v, i) {
+            return _.isUndefined(v.value) ?
+                esc(v.name)
+                : esc(v.name) + &#x27;=&#x27; + esc(v.value)
+                ;
+        })
+        .join(&#x27;&#x26;&#x27;)
+        .value()
+    ;
+    // console.log(&#x27;Query :&#x27;, query);
+    return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.awssum.AwsSum" id="apidoc.module.awssum.AwsSum">module awssum.AwsSum</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.AwsSum" id="apidoc.element.awssum.AwsSum.AwsSum">
+        function <span class="apidocSignatureSpan">awssum.</span>AwsSum
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AwsSum = function (opts) {
+    var self = this;
+    opts = opts || {};
+
+    // if we have been given an agent, store it for use
+    if ( typeof opts.agent !== &#x27;undefined&#x27; ) {
+        self._agent = opts.agent;
+    }
+
+    // if we have been given a protocol, use that one
+    if ( opts.protocol ) {
+        self._protocol = opts.protocol;
+    }
+
+    return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.awssum.AwsSum.prototype" id="apidoc.module.awssum.AwsSum.prototype">module awssum.AwsSum.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.addCommonOptions" id="apidoc.element.awssum.AwsSum.prototype.addCommonOptions">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>addCommonOptions
+        <span class="apidocSignatureSpan">(options, args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addCommonOptions = function (options, args) { }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    else {
+        // since this is a program error, we&#x27;re gonna throw this one
+        throw &#x27;Unknown addExtras : &#x27; + typeof extra;
+    }
+});
+
+// finally, add the common operations
+self.<span class="apidocCodeKeywordSpan">addCommonOptions</span>(options, args);
+
+// ---
+
+// RESPONSE STUFF
+
+// get the status code we expect, either a number on the operation or the default for this service
+var statusCode = operation.statusCode || self.statusCode();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.addExtras" id="apidoc.element.awssum.AwsSum.prototype.addExtras">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>addExtras
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addExtras = function () { }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.agent" id="apidoc.element.awssum.AwsSum.prototype.agent">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>agent
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">agent = function () {
+    return this._agent;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// if we have any JSON fields, stick it in the body
+if ( options.json &#x26;&#x26; options.json.length ) {
+    options.body = JSON.stringify(options.json);
+}
+
+// if the user has explicitly set for no agent
+if ( self.<span class="apidocCodeKeywordSpan">agent</span>() === false ) {
+    reqOptions.agent = false;
+}
+else if ( self.agent() !== undefined ) {
+    // else, they have specifically set one
+    reqOptions.agent = self.agent();
+}
+else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.extractBody" id="apidoc.element.awssum.AwsSum.prototype.extractBody">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>extractBody
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extractBody = function (options) {
+    return &#x27;none&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+else {
+    // since this is a program error, we&#x27;re gonna throw this one
+    throw &#x27;Unknown extractHeaders : &#x27; + typeof extractHeaders;
+}
+
+// build the extractBody stuff
+var extractBody = operation.extractBody || self.<span class="apidocCodeKeywordSpan">extractBody</span>();
+if ( extractBody !== &#x27;xml&#x27; &#x26;&#x26;
+     extractBody !== &#x27;json&#x27; &#x26;&#x26;
+     extractBody !== &#x27;blob&#x27; &#x26;&#x26;
+     extractBody !== &#x27;string&#x27; &#x26;&#x26;
+     extractBody !== &#x27;application/x-www-form-urlencoded&#x27; &#x26;&#x26;
+     extractBody !== &#x27;none&#x27; &#x26;&#x26;
+     !_.isFunction(extractBody) ) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.extractBodyWhenError" id="apidoc.element.awssum.AwsSum.prototype.extractBodyWhenError">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>extractBodyWhenError
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extractBodyWhenError = function (options) {
+    // set default to be undefined, so it&#x27;ll be defaulted to the extractBody value in the response processing
+    return undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     extractBody !== &#x27;none&#x27; &#x26;&#x26;
+     !_.isFunction(extractBody) ) {
+    // since this is a program error, we&#x27;re gonna throw this one
+    throw &#x27;Unknown extractBody : &#x27; + typeof extractBody;
+}
+
+// build the extractBodyWhenError
+var extractBodyWhenError = operation.extractBodyWhenError || self.<span class="apidocCodeKeywordSpan">extractBodyWhenError</span
+>();
+if ( ! extractBodyWhenError ) {
+    // if nothing is defined, then default to the same as extractBody
+    extractBodyWhenError = extractBody;
+}
+if ( extractBodyWhenError !== &#x27;xml&#x27; &#x26;&#x26;
+     extractBodyWhenError !== &#x27;json&#x27; &#x26;&#x26;
+     extractBodyWhenError !== &#x27;blob&#x27; &#x26;&#x26;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.extractHeaders" id="apidoc.element.awssum.AwsSum.prototype.extractHeaders">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>extractHeaders
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extractHeaders = function () {
+    // default to extracting _all_ of the headers
+    return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// if this isn&#x27;t a number or an object, it&#x27;s an error
+if ( ! _.isNumber(statusCode) &#x26;&#x26; ! _.isObject(statusCode) ) {
+    // since this is a program error, we&#x27;re gonna throw this one
+    throw &#x27;Unknown statusCode : &#x27; + typeof statusCode;
+}
+
+// build which headers to extract
+var extractHeaders = operation.extractHeaders || self.<span class="apidocCodeKeywordSpan">extractHeaders</span>();
+if ( typeof extractHeaders === &#x27;string&#x27;
+     || Array.isArray(extractHeaders)
+     || _.isObject(extractHeaders)
+     || _.isRegExp(extractHeaders)
+     || _.isFunction(extractHeaders)
+     || extractHeaders === true ) {
+    // all ok
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.method" id="apidoc.element.awssum.AwsSum.prototype.method">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>method
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">method = function () {
+    return &#x27;GET&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var options = {};
+
+// ---
+
+// REQUEST STUFF
+
+// build the method
+options.method = self.<span class="apidocCodeKeywordSpan">method</span>();
+if ( operation.method ) {
+    if ( typeof operation.method === &#x27;string&#x27; ) {
+        options.method = operation.method;
+    }
+    else if ( typeof operation.method === &#x27;function&#x27; ) {
+        options.method = operation.method.apply(self, [ options, args ]);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.path" id="apidoc.element.awssum.AwsSum.prototype.path">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>path
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">path = function () {
+    return &#x27;/&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+  }
+}
+
+// ---
+
+// build the path
+options.path = self.<span class="apidocCodeKeywordSpan">path</span>();
+if ( operation.path ) {
+    if ( typeof operation.path === &#x27;function&#x27; ) {
+        options.path = operation.path.apply(self, [ options, args ]);
+    }
+    else if ( typeof operation.path === &#x27;string&#x27; ) {
+        options.path = operation.path;
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.protocol" id="apidoc.element.awssum.AwsSum.prototype.protocol">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>protocol
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">protocol = function () {
+    if ( this._protocol ) {
+        return this._protocol;
+    }
+    return &#x27;https&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        throw &#x27;Unknown operation.method : &#x27; + typeof operation.method;
+    }
+}
+
+// ---
+
+// build the protocol
+options.protocol = self.<span class="apidocCodeKeywordSpan">protocol</span>();
+if ( operation.protocol ) {
+    if ( typeof operation.protocol === &#x27;string&#x27; ) {
+        options.protocol = operation.protocol;
+    }
+    else if ( typeof operation.protocol === &#x27;function&#x27; ) {
+        options.protocol = operation.protocol.apply(self, [ options, args ]);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.request" id="apidoc.element.awssum.AwsSum.prototype.request">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>request
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (options, callback) {
+    var self = this;
+
+    // check here that we have everything
+
+    // since this can be called on both close and end, just do it once
+    callback = _.once(callback);
+
+    var reqOptions = {
+        method  : options.method,
+        host    : options.host,
+        path    : options.path,
+        headers : options.headers
+    };
+
+    // if we have a port, then put that onto the request (can make local testing easier with a local server)
+    if ( options.port ) {
+        reqOptions.port = options.port;
+    }
+
+    // if we have any params, put them onto the path
+    if ( options.params &#x26;&#x26; options.params.length ) {
+        reqOptions.path += &#x27;?&#x27; + stringifyQuery( options.params );
+    }
+
+    // if we have any JSON fields, stick it in the body
+    if ( options.json &#x26;&#x26; options.json.length ) {
+        options.body = JSON.stringify(options.json);
+    }
+
+    // if the user has explicitly set for no agent
+    if ( self.agent() === false ) {
+        reqOptions.agent = false;
+    }
+    else if ( self.agent() !== undefined ) {
+        // else, they have specifically set one
+        reqOptions.agent = self.agent();
+    }
+    else {
+        // no agent, use the default one
+    }
+
+    if ( debug ) {
+        console.log(&#x27;awssum.js:request(): reqOptions = &#x27;, reqOptions);
+        console.log(&#x27;awssum.js:request(): body       = &#x27;, options.body);
+    }
+
+    // do the request
+    var requestFn = options.protocol === &#x27;https&#x27; ? https.request : http.request;
+    var req = requestFn( reqOptions, function(res) {
+        // if we want to stream, just callback now
+        if ( options.stream ) {
+            // call back now
+            return callback(null, res);
+        }
+
+        // EVERYTHING from here on is because the user isn&#x27;t streaming, we&#x27;re doing our standard decode (as applicable)
+
+        // save all of these buffers, but only if there is no writeStream
+        var buffers = [];
+        var length = 0;
+
+        res.on(&#x27;data&#x27;, function(chunk) {
+            // store the buffer and sum the lengths
+            buffers.push(chunk);
+            length += chunk.length;
+        });
+
+        // if the connection terminates before end is emitted, it&#x27;s an error
+        res.on(&#x27;close&#x27;, function(err) {
+            callback(err, null);
+        });
+
+        // when we get our full response back, it&#x27;s all good!
+        res.on(&#x27;end&#x27;, function() {
+            // process the complete body into res.body
+            res.body = new Buffer(length);
+            var offset = 0;
+            buffers.forEach(function(v, i) {
+                v.copy(res.body, offset);
+                offset += v.length;
+            });
+            callback(null, res);
+        });
+    });
+
+    // ---
+    // catch things like &#x22;Error: getaddrinfo ENOENT&#x22;
+    req.on(&#x27;error&#x27;, function(e) {
+        if ( debug ) {
+            console.log(&#x27;awssum.js:request(): request error = &#x27;, e);
+        }
+        callback(e);
+    });
+
+    // ---
+
+    // finally, if there is no body, just end the request
+    if ( _.isUndefined(options.body) ) {
+        req.end();
+        return;
+    }
+
+    // if it&#x27;s a string, send it and end it
+    if ( typeof options.body === &#x27;string&#x27; || options.body instanceof Buffer) {
+        req.write(options.body);
+        req.end();
+        return;
+    }
+
+    // it must be a stream, but check it anyway
+    if( typeof options.body.pipe === &#x22;function&#x22; &#x26;&#x26; options.body.readable ) {
+        // if the body is a readableStream, pipe it. (pipe automatically ends the request)
+        options.body.pipe(req);
+        options.body.on(&#x27;error&#x27;, function(err) {
+            callback(err, null);
+            req.end(); // todo: determine if this is necessary
+        });
+        return;
+    }
+
+    // if we&#x27;re still here, it&#x27;s presumably an empty body so just end the request as if ok!
+    req.end();
+    return;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log(&#x27;- statusCode     :&#x27;, statusCode);
+    console.log(&#x27;- extractHeaders :&#x27;, extractHeaders);
+    console.log(&#x27;- extractBody :&#x27;, extractBody);
+    console.log(&#x27;-------------------------------------------------------------------------------&#x27;);
+}
+
+// now send the request
+self.<span class="apidocCodeKeywordSpan">request</span>( options, function(err, res) {
+    // an error with the request is an error full-stop
+    if ( err ) {
+        var requestError = {
+            Code : &#x27;AwsSum-Request&#x27;,
+            Message : &#x27;Something went wrong during the request&#x27;,
+            OriginalError : err
+        };
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.send" id="apidoc.element.awssum.AwsSum.prototype.send">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>send
+        <span class="apidocSignatureSpan">(operation, args, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">send = function (operation, args, opts, callback) {
+    var self = this;
+
+    var argName, spec; // for iterations later in the function
+
+    // console.log(operation, args, opts, callback);
+
+    // extend the args with the defaults for this operation (e.g. Action, Target)
+    if ( operation.defaults ) {
+        for (var key in operation.defaults) {
+            if ( typeof operation.defaults[key] === &#x27;function&#x27; ) {
+                args[key] = operation.defaults[key].apply(self, [ operation, args ]);
+            }
+            else {
+                // the default, just copy it over (even if undefined)
+                args[key] = operation.defaults[key];
+            }
+        }
+    }
+
+    // check that we have all of the args we expected for this operation
+    for ( argName in operation.args ) {
+        spec = operation.args[argName];
+
+        // see if this is required (and check it exists, even if it is undefined)
+        if ( spec.required &#x26;&#x26; !(argName in args) ) {
+            callback({ Code : &#x27;AwsSumCheck&#x27;, Message : &#x27;Provide a &#x27; + argName });
+            return;
+        }
+    }
+
+    // ---
+
+    // BUILD ALL OF THE OPTIONS
+
+    // build all of the request options
+    var options = {};
+
+    // ---
+
+    // REQUEST STUFF
+
+    // build the method
+    options.method = self.method();
+    if ( operation.method ) {
+        if ( typeof operation.method === &#x27;string&#x27; ) {
+            options.method = operation.method;
+        }
+        else if ( typeof operation.method === &#x27;function&#x27; ) {
+            options.method = operation.method.apply(self, [ options, args ]);
+        }
+        else {
+            // since this is a program error, we&#x27;re gonna throw this one
+            throw &#x27;Unknown operation.method : &#x27; + typeof operation.method;
+        }
+    }
+
+    // ---
+
+    // build the protocol
+    options.protocol = self.protocol();
+    if ( operation.protocol ) {
+        if ( typeof operation.protocol === &#x27;string&#x27; ) {
+            options.protocol = operation.protocol;
+        }
+        else if ( typeof operation.protocol === &#x27;function&#x27; ) {
+            options.protocol = operation.protocol.apply(self, [ options, args ]);
+        }
+        else {
+            // since this is a program error, we&#x27;re gonna throw this one
+            throw &#x27;Unknown operation.protocol : &#x27; + typeof operation.protocol;
+        }
+    }
+
+    // ---
+
+    // build the host
+    if (operation.redirectHost) {
+      options.host = operation.redirectHost;
+    } else {
+      options.host = self.host(args);
+      if ( operation.host ) {
+          if ( typeof operation.host === &#x27;function&#x27; ) {
+              options.host = operation.host.apply(self, [ options, args ]);
+          }
+          else if ( typeof operation.host === &#x27;string&#x27; ) {
+              options.host = operation.host;
+          }
+          else {
+              // since this is a program error, we&#x27;re gonna throw this one
+              throw &#x27;Unknown operation.host : &#x27; + typeof operation.host;
+          }
+      }
+    }
+
+    // ---
+
+    // build the path
+    options.path = self.path();
+    if ( operation.path ) {
+        if ( typeof operation.path === &#x27;function&#x27; ) {
+            options.path = operation.path.apply(self, [ options, args ]);
+        }
+        else if ( typeof operation.path === &#x27;string&#x27; ) {
+            options.path = operation.path;
+        }
+        else {
+            // since this is a program error, we&#x27;re gonna throw this one
+            throw &#x27;Unknown operation.path : &#x27; + typeof operation.path;
+        }
+    }
+
+    // ---
+
+    // build all of the params and headers, and copy the body if user-supplied
+    options.params = [];
+    options.headers = {};
+    options.forms = [];
+    options.json = {};
+    for ( argName in operation.args ) {
+        spec = operation.args[argName];
+        var name = spec.name || argName;
+
+        // if this is a param type, add it there
+        if ( spec.type === &#x27;param&#x27; ) {
+            addParamIfDefined( options.params, name, args[argName] );
+        }
+        else if ( spec.type === &#x27;resource&#x27; ) {
+            // for Amazon S3 .. things like /?acl, /?policy and /?logging ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        callback = opts;
+        opts = {};
+    }
+    else if ( arguments.length === 3 ) {
+        // do nothing, we have everything, defined as fn(args, opts, callback)
+    }
+
+    self.<span class="apidocCodeKeywordSpan">send</span>(operation, args, opts, callback);
+};
+}
+
+function decodeWwwFormUrlEncoded(body) {
+var form = {};
+// turn the buffer into a string before splitting
+body.toString(&#x27;utf8&#x27;).split(&#x27;&#x26;&#x27;).forEach(function(v, i) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.awssum.AwsSum.prototype.statusCode" id="apidoc.element.awssum.AwsSum.prototype.statusCode">
+        function <span class="apidocSignatureSpan">awssum.AwsSum.prototype.</span>statusCode
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">statusCode = function (options) {
+    return 200;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+self.addCommonOptions(options, args);
+
+// ---
+
+// RESPONSE STUFF
+
+// get the status code we expect, either a number on the operation or the default for this service
+var statusCode = operation.statusCode || self.<span class="apidocCodeKeywordSpan">statusCode</span>();
+// if this isn&#x27;t a number or an object, it&#x27;s an error
+if ( ! _.isNumber(statusCode) &#x26;&#x26; ! _.isObject(statusCode) ) {
+    // since this is a program error, we&#x27;re gonna throw this one
+    throw &#x27;Unknown statusCode : &#x27; + typeof statusCode;
+}
+
+// build which headers to extract
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
