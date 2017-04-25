@@ -1,6 +1,6 @@
 # npmdoc-awssum
 
-#### api documentation for  [awssum (v1.2.0)](http://awssum.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-awssum.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-awssum) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-awssum.svg)](https://travis-ci.org/npmdoc/node-npmdoc-awssum)
+#### basic api documentation for  [awssum (v1.2.0)](http://awssum.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-awssum.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-awssum) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-awssum.svg)](https://travis-ci.org/npmdoc/node-npmdoc-awssum)
 
 #### NodeJS module to aid talking to Web Service APIs. Requires plugins.
 

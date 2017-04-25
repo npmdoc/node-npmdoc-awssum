@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "#### api documentation for  [awssum (v1.2.0)](http://awssum.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-awssum.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-awssum) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-awssum.svg)](https://travis-ci.org/npmdoc/node-npmdoc-awssum)",
+    "description": "#### basic api documentation for  [awssum (v1.2.0)](http://awssum.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-awssum.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-awssum) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-awssum.svg)](https://travis-ci.org/npmdoc/node-npmdoc-awssum)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
