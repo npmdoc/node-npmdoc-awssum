@@ -373,7 +373,23 @@
     <li>description and source-code<pre class="apidocCodePre">function addParam(params, name, value) {
     params.push({ &#x27;name&#x27; : name, &#x27;value&#x27; : value });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// --------------------------------------------------------------------------------------------------------------------
+
+test(&#x22;test addParam&#x22;, function (t) {
+var params = [];
+var result = [
+    { &#x27;name&#x27; : &#x27;Name&#x27;,  &#x27;value&#x27; : &#x27;Value&#x27; }
+];
+awssum.<span class="apidocCodeKeywordSpan">addParam</span>(params, &#x27;Name&#x27;, &#x27;Value&#x27;);
+t.ok(_.isEqual(params, result), &#x27;Deep compare of params&#x27;);
+
+t.end();
+});
+
+test(&#x22;test addParamIfDefined&#x22;, function (t) {
+var params1 = [];
+...</pre></li>
     </ul>
 
 
@@ -410,7 +426,23 @@
         });
     });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+t.end();
+});
+
+test(&#x22;test addParam2dArray&#x22;, function (t) {
+var values1 = [];
+var params1 = [];
+var result1 = [];
+awssum.<span class="apidocCodeKeywordSpan">addParam2dArray</span>(params1, &#x27;Name&#x27;, &#x27;SetName&#x27;, values1);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of addParam2dArray (empty array)&#x27;);
+
+var values2;
+var params2 = [];
+var result2 = [];
+awssum.addParam2dArray(params2, &#x27;Name&#x27;, &#x27;SetName&#x27;, values2);
+t.ok(_.isEqual(params2, result2), &#x27;Deep compare of addParam2dArray (undefined value)&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -442,7 +474,23 @@
         });
     });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+t.end();
+});
+
+test(&#x22;test addParam2dArraySet&#x22;, function (t) {
+var values1 = [];
+var params1 = [];
+var result1 = [];
+awssum.<span class="apidocCodeKeywordSpan">addParam2dArraySet</span>(params1, &#x27;Name&#x27;, &#x27;SetName&#x27;, values1);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of addParam2dArray (empty array)&#x27;);
+
+var values2;
+var params2 = [];
+var result2 = [];
+awssum.addParam2dArraySet(params2, &#x27;Name&#x27;, &#x27;SetName&#x27;, values2);
+t.ok(_.isEqual(params2, result2), &#x27;Deep compare of addParam2dArray (undefined value)&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -470,7 +518,23 @@
         params.push({ &#x27;name&#x27; : prefix + (i+1), &#x27;value&#x27; : value[i] });
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+test(&#x22;test addParamArray&#x22;, function (t) {
+var values1 = [ &#x27;Hi&#x27;, &#x27;There&#x27; ];
+var params1 = [];
+var result1 = [
+    { &#x27;name&#x27; : &#x27;Name.member.1&#x27;, &#x27;value&#x27; : &#x27;Hi&#x27; },
+    { &#x27;name&#x27; : &#x27;Name.member.2&#x27;, &#x27;value&#x27; : &#x27;There&#x27; },
+];
+awssum.<span class="apidocCodeKeywordSpan">addParamArray</span>(params1, &#x27;Name&#x27;, values1, &#x27;member&#x27;);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of addParamArray&#x27;);
+
+var values2 = [];
+var params2 = [];
+var result2 = [];
+awssum.addParamArray(params2, &#x27;Name&#x27;, values2, &#x27;member&#x27;);
+t.ok(_.isEqual(params2, result2), &#x27;Deep compare of addParamArray (empty)&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -497,7 +561,23 @@
         });
     });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+t.end();
+});
+
+test(&#x22;test addParamArrayOfObjects&#x22;, function (t) {
+var values1 = [];
+var params1 = [];
+var result1 = [];
+awssum.<span class="apidocCodeKeywordSpan">addParamArrayOfObjects</span>(params1, &#x27;Anything&#x27;, values1);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of addParamArrayOfObjects (empty array)&#x27;);
+
+var values2 = [
+    { &#x27;Username&#x27; : &#x27;chilts&#x27;, &#x27;Logins&#x27; : 12 },
+    { &#x27;Username&#x27; : &#x27;bob&#x27;,    &#x27;Logins&#x27; :  1 },
+];
+var params2 = [];
+...</pre></li>
     </ul>
 
 
@@ -526,7 +606,23 @@
         params.push({ &#x27;name&#x27; : setName + &#x27;.&#x27; + (i+1) + &#x27;.&#x27; + name, &#x27;value&#x27; : v });
     });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+test(&#x22;test addParamArraySet&#x22;, function (t) {
+var values1 = &#x27;Hello, World!&#x27;;
+var params1 = [];
+var result1 = [
+    { &#x27;name&#x27; : &#x27;Name.1.SetName&#x27;, &#x27;value&#x27; : &#x27;Hello, World!&#x27; },
+];
+awssum.<span class="apidocCodeKeywordSpan">addParamArraySet</span>(params1, &#x27;Name&#x27;, &#x27;SetName&#x27;, values1);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of addParamArray (single value)&#x27;);
+
+var values2 = [ &#x27;Hello, World!&#x27;, &#x27;Hi Everyone&#x27; ];
+var params2 = [];
+var result2 = [
+    { &#x27;name&#x27; : &#x27;Name.1.SetName&#x27;, &#x27;value&#x27; : &#x27;Hello, World!&#x27; },
+    { &#x27;name&#x27; : &#x27;Name.2.SetName&#x27;, &#x27;value&#x27; : &#x27;Hi Everyone&#x27; },
+...</pre></li>
     </ul>
 
 
@@ -564,7 +660,23 @@
         return;
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+test(&#x22;test addParamData&#x22;, function (t) {
+var values0 = &#x27;Hiya&#x27;;
+var params0 = [];
+var result0 = [
+    { &#x27;name&#x27; : &#x27;Message&#x27;, &#x27;value&#x27; : &#x27;Hiya&#x27; },
+];
+awssum.<span class="apidocCodeKeywordSpan">addParamData</span>(params0, &#x27;Message&#x27;, values0);
+t.ok(_.isEqual(params0, result0), &#x27;Deep compare of addParamData (a value)&#x27;);
+
+var values1 = [];
+var params1 = [];
+var result1 = [];
+awssum.addParamData(params1, &#x27;Anything&#x27;, values1);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of addParamData (empty array)&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -581,7 +693,22 @@
         params.push({ &#x27;name&#x27; : name, &#x27;value&#x27; : value });
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+test(&#x22;test addParamIfDefined&#x22;, function (t) {
+var params1 = [];
+var result1 = [
+    { &#x27;name&#x27; : &#x27;Name&#x27;,  &#x27;value&#x27; : &#x27;Value&#x27; }
+];
+awssum.<span class="apidocCodeKeywordSpan">addParamIfDefined</span>(params1, &#x27;Name&#x27;, &#x27;Value&#x27;);
+t.ok(_.isEqual(params1, result1), &#x27;Deep compare of params&#x27;);
+
+var params2 = [];
+var result2 = [];
+awssum.addParamIfDefined(params2, &#x27;Name&#x27;, undefined);
+t.ok(_.isEqual(params2, result2), &#x27;Deep compare of (empty) params&#x27;);
+...</pre></li>
     </ul>
 
 
